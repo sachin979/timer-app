@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import useTimer from "./Timer";
 
 function App() {
+  const { timer, start, stop, pause } = useTimer();
+  const btnStyle = {
+    width: "80px",
+    height: "30px",
+    margin: "10px",
+    fontSize: "14px",
+    fontWeight: "600",
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div style={{ fontSize: "28px" }}> {timer} </div>
+      <div>
+        <button onClick={start} style={btnStyle}>
+          Start
+        </button>
+        <button onClick={pause} style={btnStyle}>
+          Pause
+        </button>
+        <button onClick={stop} style={btnStyle}>
+          Reset
+        </button>
+      </div>
     </div>
   );
 }
